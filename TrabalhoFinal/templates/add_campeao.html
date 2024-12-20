@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Campeão</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <header>
+    <div class="topo">
+        <a href="/ver-campeoes">Campeões</a>
+        <a href="/get_all_user">Usuário</a>
+    </div>
+    <div class="base">
+        <a href="/add_campeao">Adicionar Campeoes</a>
+        <a href="/ver-campeoes">Lista Campeoes</a>
+        <a href="/update_campeao">Atualizar Campeoes</a>
+        <a href="/delete_campeao">Deletar Campeoes</a>
+    </div>
+</header>
+    <h1>Adicionar Campeão</h1>
+    <form id="add" action="/add_campeao" method="POST">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="dificuldade">Dificuldade</label>
+        <select id="dificuldade" name="dificuldade" required>
+          <option value="facil">facil</option>
+          <option value="moderado">moderado</option>
+          <option value="dificil">dificil</option>
+        </select>>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+{% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+</body>
+</html>

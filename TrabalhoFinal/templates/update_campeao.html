@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Campeão</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <header>
+    <div class="topo">
+        <a href="/ver-campeoes">Campeões</a>
+        <a href="/get_all_user">Usuário</a>
+    </div>
+    <div class="base">
+        <a href="/add_campeao">Adicionar Campeoes</a>
+        <a href="/ver-campeoes">Lista Campeoes</a>
+        <a href="/update_campeao">Atualizar Campeoes</a>
+        <a href="/delete_campeao">Deletar Campeoes</a>
+    </div>
+</header>
+    <h1>Atualizar Campeão</h1>
+    <form id="update" action="/update_campeao" method="POST">
+        <label for="id_campeao">ID do Campeão</label>
+        <input type="text" id="id_campeao" name="id_campeao" required>
+    
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+    
+        <label for="dificuldade">Dificuldade</label>
+        <input type="text" id="dificuldade" name="dificuldade" required>
+    
+        <button type="submit">Enviar</button>
+    </form>
+    
+</body>
+</html>

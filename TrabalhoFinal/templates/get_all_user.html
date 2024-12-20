@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mostrar todos os usuarios</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <header>
+    <div class="topo">
+        <a href="/campeao_index">Campeões</a>
+        <a href="/get_all_user">Usuário</a>
+    </div>
+    <div class="base">
+        <a href="/add_campeao">Adicionar Campeoes</a>
+        <a href="/ver-campeoes">Lista Campeoes</a>
+        <a href="/update_campeao">Atualizar Campeoes</a>
+        <a href="/delete_campeao">Deletar Campeoes</a>
+    </div>
+</header>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.id_usuario }}</td>
+                <td>{{ usuario. nome}}</td>
+                <td>{{ usuario.email }}</td>
+
+            </tr>
+            {% endfor %}
+            {% if not usuarios %}
+                <p>Nenhum usuário encontrado.</p>
+            {% endif %}
+
+        </tbody>
+    </table>
+{% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+</body>
+</html>
